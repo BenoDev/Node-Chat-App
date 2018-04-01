@@ -10,14 +10,5 @@
     </body>
 
     <script src="/socket.io/socket.io.js"></script>
-    <script>
-    	let socket = io(); //make request to server to open connection
-    	socket.on('connect',()=>{
-    		console.log('Connect to server')
-    	});
-
-    	socket.on('disconnect',()=>{
-    		console.log('Disconnected from the server')
-    	})
-    </script>
+    <script src="/js/index.js"></script>
 </html>

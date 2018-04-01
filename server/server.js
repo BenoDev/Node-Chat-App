@@ -16,9 +16,21 @@ app.use(express.static(publicPath));
 //add and event lisnet connection
 io.on('connection', (socket)=> {
 	console.log('New user connected');
+
+
+	socket.emit('newMessage',{
+		from: 'funnyBeno@test.com',
+		text: 'Hey, What\'s up',
+		createdAt: 123
+	});
+
+	socket.on('createMessage', (newMessage)=>{
+		console.log('Create email:',newMessage)
+	});
+
 	socket.on('disconnect',()=>{
 		console.log('User was disconnected')
-	})
+	});
 });
 
 	
