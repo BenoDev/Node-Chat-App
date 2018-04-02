@@ -6,31 +6,24 @@
         <link rel="stylesheet" href="/css/styles.css">
     </head>
     <body class= "chat">
-    	<div class="chat__sidebar">
-    		<h3>People</h3>
-    		<div id="users"></div>
-    	</div>
+    	 <div class="chat__sidebar">
+        <h3>People</h3>
+        <div id="users"></div>
+      </div>
 
-    	<div class="chat__main">
-	    	<ul id ="messages" class="chat__message"></ul>
+      <div class="chat__main">
+        <ol id="messages" class="chat__messages"></ol>
 
-	    	<div class='chat__footer'>
-	    		<form id="message-form">
-					<button>Send</button>
-					<input name="message" type="text" placeholder="Message" autofocus autocomplete="off" />
-				</form>
-
-				<button id= "send-location">Send Location</button>
-	    	</div>
-			
-    	</div>
+        <div class="chat__footer">
+          <form id="message-form">
+            <input name="message" type="text" placeholder="Message" autofocus autocomplete="off"/>
+            <button>Send</button>
+          </form>
+          <button id="send-location">Send location</button>
+        </div>
+      </div>
 		
 		
-    
-    </body>
-
-    
-
 	<script id="message-template" type="text/template">
     <li class="message">
       <div class="message__title">
@@ -50,7 +43,7 @@
         <span>{{createdAt}}</span>
       </div>
       <div class="message__body">
-        <p><a href={{url}} target="_blank">My current location</a></p>
+        <p><a href={{url}} target="_blank"></a></p>
       </div>
     </li>
   </script>
@@ -60,4 +53,7 @@
     <script src="/js/libs/moment.js"></script>
     <script src="/js/libs/mustache.js"></script>
     <script src="/js/index.js"></script>
+  
+      
+  </body>
 </html>
