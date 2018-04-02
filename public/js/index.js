@@ -28,11 +28,14 @@ var socket = io(); //make request to server to open connection
 
     	jQuery('#message-form').on('submit',function(e){
 			e.preventDefault();
+			
+			var messageTextbox = jQuery('[name=message]');
+
 			socket.emit('createMessage',{
 				from: 'User',
-				text: jQuery('[name=message').val()
+				text:  messageTextbox.val()
 			},function(){
-
+				 messageTextbox.val('')
 			});
     	})
 
@@ -42,13 +45,16 @@ var socket = io(); //make request to server to open connection
 			if(!navigator.geolocation){
 				return alert('Geolocation not supportted from your browser')
 			}
+			locationButton.prop("disabled", true).text('Sending location...')
+
 			navigator.geolocation.getCurrentPosition(function(position){
-				console.log(position);
+				locationButton.prop("disabled", false).text('Send location');
 				socket.emit('createLocationMessage',{
 					latitude:position.coords.latitude,
 					longitude : position.coords.longitude
 				})
 			},function(){
+				locationButton.prop("disabled", false).text('Send location');
 				alert('Unable to fetch location')
 			})
     	});
